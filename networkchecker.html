@@ -1,0 +1,241 @@
+<!doctype html>
+<html  lang="en">
+<head>
+	<!--required  meta tags all other mata tags can be added-->
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!--bootstrap css-->
+	<link rel="stylesheet"  type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"href="bootstrap/css/animate.min.css">
+    
+
+
+    <style type="text/css">
+
+    body{
+        font-family: corbel;
+
+    }
+    
+    div{border:0px solid red;
+       min-height: 100px;
+
+    }
+
+    .maroon{
+     color:maroon;
+    }
+    .green{
+        color:green;
+    }
+
+    .center{text-align: center;}
+
+    .pic-center{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+    }
+
+    .error{
+        border:1px solid red;
+    }
+    </style>
+
+
+ 	<title>Network Provider Checker</title>
+
+	</head>
+
+	<body>
+        
+        <div class="container-fluid">
+            <div class="row">
+
+             
+                <div class="col-md-8">
+                    <h1 class="center pt-5  animate__animated animate__bounce">Get info about your favourite network provider</h1>
+                    <marquee scrollamount="15"><h5 class="center maroon">Having issues knowing what network a number belongs to ? worry no more!</h5></marquee>
+                    
+                   
+                    
+
+                   
+
+                    <p class="text-center pt-5"><img src="images/airtel.png" alt="airtel" class="img-fluid mr-3  animate__animated animate__bounceInUp">
+                        <img src="images/mtn.png" alt="mtn" class="img-fluid mr-3 animate__animated animate__bounce">
+                        <img src="images/glo.jpeg" alt="glo" class="img-fluid mr-3 animate__animated animate__bounceInUp">
+                        <img src="images/9mobile.png" alt="9mobile" class="img-fluid mr-3 animate__animated animate__bounce">
+                    </p>
+                        
+
+
+                        
+
+                        
+
+                
+                   
+
+                </div>  
+
+                <div class="col-md-4">
+
+                    <img src="images/support.jpg" alt="support" class="img-fluid">
+                   
+                   
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-4 col-md-4">
+
+                    <img id="network" class="img-fluid pic-center mt-2">
+                    <p id="network-text" class="text-center mt-1" ></p>
+
+                </div>
+
+                <div class="col-md-12">
+                    <form class="offset-md-4 col-md-4 "  action="" method="get">
+                        <div class="form-group  ">
+                            <input type="text" id=phonenumber name="phonenumber" class="form-control" required="required" 
+                            placeholder="         Please type in your number" >
+                    
+                        </div>
+
+                        <div class="form-group">
+                            
+                        </div>
+
+
+                    </form>
+                   
+
+                </div>  
+
+             
+                <div class="col-md-6">
+                   
+
+                </div>  
+
+                <div class="col-md-6">
+                   
+
+                </div>  
+
+
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="bootstrap/js/jquery-3.6.0.js"></script>
+
+
+        <script type="text/javascript">
+            
+               $('#phonenumber').keyup(function(){
+                var digit=$('#phonenumber').val().trim();
+                if(digit=='0703'|| digit=="0706" || digit=="0803"  || digit=="0806" ||digit=="0810" ||digit=="0813" ||digit=="0814" ||digit=="0816" ||digit=="0903" ||digit=="0906"){
+                    $('#network').addClass('animate__animated animate__bounce');
+                    $('#network').attr('src','images/mtn.png');
+                    $('#network-text').html('This mobile number is an'+"<b> MTN</b>"+' line!');
+                    $('#network-text').addClass('animate__animated animate__flash');
+                
+                
+    
+                }
+
+                else if(digit=="0705"|| digit=="0805"||digit=="0807"||digit=="0811"||digit=="0815"||digit=="0905" ){
+                    $('#network').addClass('animate__animated animate__heartBeat');
+                    $('#network').attr('src','images/glo.jpeg');
+                    $('#network-text').html('This mobile number is a'+"<b> GLOBACOM</b>"+' line!');
+                    $('#network-text').removeClass('bg-danger');
+                    
+                    $('#network-text').addClass('animate__animated animate__flash');
+
+                }
+
+
+                else if(digit=="0701"|| digit=="0708"||digit=="0802"||digit=="0808"||digit=="0812"||digit=="0902"|| digit=="0907"||digit=="0901" ){
+                    $('#network').addClass('animate__animated  animate__bounce');
+                    $('#network').attr('src','images/airtel.png');
+                    $('#network-text').html('This mobile number is an'+"<b> AIRTEL</b>"+' line!');
+                    $('#network-text').removeClass('bg-danger');
+                    $('#network-text').addClass('animate__animated animate__flash');
+
+                }
+
+                else if(digit=="0809"|| digit=="0817"||digit=="0818"||digit=="0908"||digit=="0909"){
+                    $('#network').addClass('animate__animated  animate__bounce');
+                    $('#network').attr('src','images/9mobile.png');
+                    $('#network-text').html('This mobile number is a'+"<b> 9MOBILE</b>"+' line!');
+                    $('#network-text').removeClass('bg-danger');
+                    $('#network-text').addClass('animate__animated animate__flash');
+
+                }
+                else if(digit=="0809"|| digit=="0817"||digit=="0818"||digit=="0908"||digit=="0909"){
+                    $('#network').addClass('animate__animated  animate__bounce');
+                    $('#network').attr('src','images/9mobile.png');
+                    $('#network-text').html('This mobile number is a'+"<b> 9MOBILE</b>"+' line!');
+                    $('#network-text').removeClass('bg-danger');
+                    $('#network-text').addClass('animate__animated animate__flash');
+                    
+                   
+
+                }
+                else if(digit.length>11 ){
+                   
+                    
+                    alert('You have typed in an invalid phone number');
+                }
+                else if(isNaN(digit)){
+
+                    $('#network-text').html('Invalid input please check number and try again');
+                    $('#network-text').addClass('animate__animated animate__flash');
+                    $('#network-text').addClass('bg-danger');
+
+                }
+                else if(digit==""){
+                    $('#network-text').html('You have not typed in a number or the number is not a local line');
+                    $('#network-text').addClass('animate__animated animate__flash');
+                    $('#network-text').removeClass('bg-danger');
+                    $('#network').removeAttr('src');
+
+                    
+                }
+                
+                        
+                
+                
+                
+                
+               })
+               
+            
+           </script>
+    
+
+
+        
+
+	  <!----Java script files and they must follow this sequence because it runs starting with the first--->
+	 
+	  <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+	  <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	</body>
+
+
+
+</html>
